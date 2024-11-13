@@ -1,0 +1,31 @@
+
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CUSTOMER-REPORT.
+       
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT CUSTOMER-FILE ASSIGN TO 'CUSTOMER.DAT'
+           ORGANIZATION IS LINE SEQUENTIAL.
+           
+       DATA DIVISION.
+       FILE SECTION.
+       FD CUSTOMER-FILE.
+       01 CUSTOMER-RECORD.
+           05 CUSTOMER-ID       PIC 9(5).
+           05 CUSTOMER-NAME     PIC X(30).
+           05 CUSTOMER-BALANCE  PIC 9(7)V99.
+           
+       PROCEDURE DIVISION.
+           OPEN INPUT CUSTOMER-FILE
+           READ CUSTOMER-FILE
+               AT END SET END-OF-FILE TO TRUE
+           END-READ
+           PERFORM UNTIL END-OF-FILE
+               DISPLAY CUSTOMER-RECORD
+               READ CUSTOMER-FILE
+                   AT END SET END-OF-FILE TO TRUE
+               END-READ
+           END-PERFORM
+           CLOSE CUSTOMER-FILE
+           STOP RUN.
