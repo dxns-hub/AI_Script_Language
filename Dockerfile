@@ -12,7 +12,7 @@ RUN apt-get update &&     apt-get install -y gnucobol
 COPY . .
 
 # Compile the COBOL test suite
-RUN cobc -x -o test_suite_coverage customer_report_test_suite_coverage.cbl
+RUN cobc -x -o test_suite_coverage test_suite/customer_report_test_suite.cbl
 
 # Run the test suite
-CMD ["./test_suite_coverage"]
+CMD ["./test_suite_converage"]
