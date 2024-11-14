@@ -6,7 +6,7 @@ AI Scripting Language (ASL) is a framework for creating advanced script prompts 
 ## Project Structure
 ```
 .
-├── Dockerfile              # Container setup for COBOL environment
+├── Dockerfile             # Container setup for COBOL environment
 ├── README.md              # Project documentation
 ├── customer_report.cbl    # Main COBOL program
 ├── test_suite/
@@ -32,11 +32,11 @@ AI Scripting Language (ASL) is a framework for creating advanced script prompts 
 1. Clone the repository
 2. Build the Docker container:
    ```bash
-   docker build -t asl-project .
+   docker build -t ai_script_language .
    ```
 3. Run the test suite:
    ```bash
-   docker run asl-project
+   docker run ai_script_language
    ```
 
 ## Testing Framework
